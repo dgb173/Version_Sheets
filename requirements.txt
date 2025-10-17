@@ -43,3 +43,4 @@ wsproto==1.2.0
 gspread
 gspread-dataframe
 gunicorn
+streamlit
