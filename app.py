@@ -36,6 +36,7 @@ def load_data_from_sheets():
     """Carga los datos desde Google Sheets de forma segura para Render."""
     try:
         # Lógica de autenticación dual: para Render (con variable de entorno) y para local (con archivo)
+        print(f"GOOGLE_CREDS_JSON environment variable: {os.environ.get('GOOGLE_CREDS_JSON')}")
         if 'GOOGLE_CREDS_JSON' in os.environ:
             # Estamos en Render: usar la variable de entorno
             try:
