@@ -35,34 +35,20 @@ MADRID_TZ = pytz.timezone('Europe/Madrid')
 def load_data_from_sheets():
     """Carga los datos desde Google Sheets de forma segura para Render."""
     try:
-        # Lógica de autenticación dual: para Render (con variable de entorno) y para local (con archivo)
-        print(f"GOOGLE_CREDS_JSON environment variable: {os.environ.get('GOOGLE_CREDS_JSON')}")
-        if 'GOOGLE_CREDS_JSON' in os.environ:
-            # Estamos en Render: usar la variable de entorno
-            try:
-                creds_json_str = os.environ.get('GOOGLE_CREDS_JSON')
-                creds_dict = json.loads(creds_json_str)
-                client = gspread.service_account_from_dict(creds_dict)
-                print("Autenticando con Google vía variable de entorno.")
-            except Exception as e:
-                print(f"ERROR detallado al autenticar con variable de entorno: {e}")
-                import traceback
-                traceback.print_exc()
-                return {"upcoming_matches": [], "finished_matches": [], "error": str(e)}
+        # Lógica de autenticación dual: para Render (con Secret File) y para local (con archivo)
+        SECRET_FILE_PATH = '/etc/secrets/clave_sheets.json'
+        if os.path.exists(SECRET_FILE_PATH):
+            # Estamos en Render: usar el Secret File
+            client = gspread.service_account(filename=SECRET_FILE_PATH)
+            print("Autenticando con Google vía Secret File de Render.")
         else:
             # Estamos en local: usar el archivo clave_sheets.json
-            try:
-                KEY_FILE_PATH = os.path.join(os.path.dirname(__file__), 'clave_sheets.json')
-                if not os.path.exists(KEY_FILE_PATH):
-                    print("ERROR: No se encontró 'clave_sheets.json' para ejecución local.")
-                    return {"upcoming_matches": [], "finished_matches": [], "error": "No se encontró el archivo de credenciales 'clave_sheets.json'."}
-                client = gspread.service_account(filename=KEY_FILE_PATH)
-                print("Autenticando con Google vía archivo local 'clave_sheets.json'.")
-            except Exception as e:
-                print(f"ERROR detallado al autenticar con archivo local: {e}")
-                import traceback
-                traceback.print_exc()
-                return {"upcoming_matches": [], "finished_matches": [], "error": str(e)}
+            KEY_FILE_PATH = os.path.join(os.path.dirname(__file__), 'clave_sheets.json')
+            if not os.path.exists(KEY_FILE_PATH):
+                print("ERROR: No se encontró 'clave_sheets.json' para ejecución local.")
+                return {"upcoming_matches": [], "finished_matches": [], "error": "No se encontró el archivo de credenciales 'clave_sheets.json'."}
+            client = gspread.service_account(filename=KEY_FILE_PATH)
+            print("Autenticando con Google vía archivo local 'clave_sheets.json'.")
         spreadsheet = client.open("Almacen_Stre")
 
         # Cargar hojas de cálculo usando los nombres correctos: 'Hoja 1' y 'Hoja 2'
