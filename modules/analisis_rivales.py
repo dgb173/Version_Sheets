@@ -19,9 +19,9 @@ def analizar_rivales_comunes(soup, home_team_name, away_team_name):
         match_away = rivales_away[rival]
 
         if match_home['margen'] > match_away['margen']:
-            conclusion = f"<strong style='color: green;'>{home_team_name} tuvo un mejor rendimiento</strong> contra {rival}.
+            conclusion = f"""<strong style='color: green;'>{home_team_name} tuvo un mejor rendimiento</strong> contra {rival}."""
         elif match_home['margen'] < match_away['margen']:
-            conclusion = f"<strong style='color: red;'>{away_team_name} tuvo un mejor rendimiento</strong> contra {rival}.
+            conclusion = f"""<strong style='color: red;'>{away_team_name} tuvo un mejor rendimiento</strong> contra {rival}."""
         else:
             conclusion = f"Ambos equipos tuvieron un rendimiento similar contra {rival}."
         
