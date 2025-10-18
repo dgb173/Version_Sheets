@@ -525,7 +525,10 @@ def main() -> None:
     if recargar or data_path_input != st.session_state.get("data_json_path", ""):
         st.session_state["data_json_path"] = data_path_input.strip()
         cached_load_data.clear()
-        st.experimental_rerun()
+        if hasattr(st, "experimental_rerun"):
+            st.experimental_rerun()
+        else:  # Streamlit >= 1.32 introduce st.rerun
+            st.rerun()
 
     with st.spinner("Cargando datos desde data.json..."):
         all_data = cached_load_data(st.session_state.get("data_json_path") or None)
