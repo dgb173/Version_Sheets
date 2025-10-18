@@ -40,8 +40,4 @@ webdriver-manager==4.0.2
 websocket-client==1.9.0
 Werkzeug==3.1.3
 wsproto==1.2.0
-aiohttp
-gspread
-gspread-dataframe
-gunicorn
-streamlit
+aiohttp==3.9.5
