@@ -66,64 +66,78 @@ def normalize_handicap_to_half_bucket_str(text: str):
     return f"{b:.1f}"
 
 # --- Funciones movidas desde app.py para ser reutilizadas ---
-import gspread
-from gspread_dataframe import get_as_dataframe
-import pandas as pd
+import json
 import os
 from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
 import pytz
 
 # Zona horaria para la comparación de partidos
 MADRID_TZ = pytz.timezone('Europe/Madrid')
 
-def load_data_from_sheets():
-    """Carga los datos desde Google Sheets de forma segura para Render."""
+DATA_JSON_ENV_VAR = "DATA_JSON_PATH"
+_DEFAULT_DATASET_CANDIDATES = ("datos.json", "data.json")
+
+
+def _discover_default_dataset() -> Path:
+    base_dir = Path(__file__).resolve().parents[2]
+    for name in _DEFAULT_DATASET_CANDIDATES:
+        candidate = base_dir / name
+        if candidate.exists():
+            return candidate
+    return base_dir / _DEFAULT_DATASET_CANDIDATES[0]
+
+
+DEFAULT_DATA_JSON = _discover_default_dataset()
+
+
+def _resolve_data_json_path(explicit_path: str | None = None) -> Path:
+    if explicit_path:
+        candidate = Path(explicit_path).expanduser().resolve()
+        if candidate.exists():
+            return candidate
+    env_path = os.environ.get(DATA_JSON_ENV_VAR)
+    if env_path:
+        candidate = Path(env_path).expanduser().resolve()
+        if candidate.exists():
+            return candidate
+    return DEFAULT_DATA_JSON
+
+
+def load_data_from_sheets(data_path: str | None = None):
+    """Carga los datos desde data.json, conservando la interfaz original."""
     try:
-        # Lógica de autenticación dual: para Render (con Secret File) y para local (con archivo)
-        SECRET_FILE_PATH = '/etc/secrets/clave_sheets.json'
-        if os.path.exists(SECRET_FILE_PATH):
-            # Estamos en Render: usar el Secret File
-            client = gspread.service_account(filename=SECRET_FILE_PATH)
-            print("Autenticando con Google vía Secret File de Render.")
-        else:
-            # Estamos en local: usar el archivo clave_sheets.json
-            KEY_FILE_PATH = os.path.join(os.path.dirname(__file__), 'clave_sheets.json')
-            if not os.path.exists(KEY_FILE_PATH):
-                print("ERROR: No se encontró 'clave_sheets.json' para ejecución local.")
-                return {"upcoming_matches": [], "finished_matches": [], "error": "No se encontró el archivo de credenciales 'clave_sheets.json'."}
-            client = gspread.service_account(filename=KEY_FILE_PATH)
-            print("Autenticando con Google vía archivo local 'clave_sheets.json'.")
-        spreadsheet = client.open("Almacen_Stre")
+        data_file = _resolve_data_json_path(data_path)
+        if not data_file.exists():
+            msg = f"No se encontró el archivo de datos en {data_file}"
+            print(f"ERROR: {msg}")
+            return {"upcoming_matches": [], "finished_matches": [], "error": msg}
 
-        # Cargar hojas de cálculo usando los nombres correctos: 'Hoja 1' y 'Hoja 2'
-        upcoming_ws = spreadsheet.worksheet('Hoja 1')
-        finished_ws = spreadsheet.worksheet('Hoja 2')
+        with data_file.open("r", encoding="utf-8") as fh:
+            raw_data = json.load(fh)
 
-        # Convertir a DataFrames de Pandas
-        # Usamos `evaluate_formulas=True` para obtener los valores calculados si los hubiera
-        df_upcoming = get_as_dataframe(upcoming_ws, evaluate_formulas=True)
-        df_finished = get_as_dataframe(finished_ws, evaluate_formulas=True)
+        upcoming_matches = raw_data.get("upcoming_matches", []) or []
+        finished_matches = raw_data.get("finished_matches", []) or []
 
-        # Limpiar DataFrames: eliminar filas donde todos los valores son nulos
-        df_upcoming.dropna(how='all', inplace=True)
-        df_finished.dropna(how='all', inplace=True)
-
-        # Convertir DataFrames a listas de diccionarios para ser usadas en las plantillas
-        upcoming_matches = df_upcoming.to_dict('records')
-        finished_matches = df_finished.to_dict('records')
-        
-        print(f"Datos cargados desde Google Sheet 'Almacen_Stre': {len(upcoming_matches)} próximos, {len(finished_matches)} finalizados.")
-        return {"upcoming_matches": upcoming_matches, "finished_matches": finished_matches}
-
-    except gspread.exceptions.SpreadsheetNotFound:
-        print(f"ERROR: No se encontró el Google Sheet con el nombre 'Almacen_Stre'. Verifica el nombre y los permisos.")
-        return {"upcoming_matches": [], "finished_matches": [], "error": "Spreadsheet 'Almacen_Stre' no encontrado."}
-    except gspread.exceptions.WorksheetNotFound as e:
-        print(f"ERROR: No se encontró una de las pestañas requeridas ('Hoja 1' o 'Hoja 2'): {e}")
-        return {"upcoming_matches": [], "finished_matches": [], "error": f"Pestaña no encontrada: {e}"}
+        print(
+            f"Datos cargados desde '{data_file}': "
+            f"{len(upcoming_matches)} próximos, {len(finished_matches)} finalizados."
+        )
+        return {
+            "upcoming_matches": upcoming_matches,
+            "finished_matches": finished_matches,
+            "source_path": str(data_file),
+        }
     except Exception as e:
-        print(f"ERROR al cargar datos desde Google Sheets: {e}")
-        return {"upcoming_matches": [], "finished_matches": [], "error": str(e)}
+        print(f"ERROR al cargar datos locales: {e}")
+        return {
+            "upcoming_matches": [],
+            "finished_matches": [],
+            "error": str(e),
+            "source_path": str(_resolve_data_json_path(data_path)),
+        }
 
 def filter_upcoming_matches(matches):
     """Filtra la lista de partidos para devolver solo los que no han comenzado."""
@@ -132,24 +146,32 @@ def filter_upcoming_matches(matches):
     upcoming = []
     for match in matches:
         try:
-            match_time_obj = match.get('time')
-            if match_time_obj is None or pd.isna(match_time_obj):
+            match_time_obj = match.get('time_obj') or match.get('time')
+            if match_time_obj is None or (isinstance(match_time_obj, float) and pd.isna(match_time_obj)):
                 continue
 
             # Manejo robusto de fechas: string, datetime nativo o Timestamp de Pandas
             if isinstance(match_time_obj, str):
-                # INTENTAR PARSEAR FECHA Y HORA
-                try:
-                    match_time = datetime.strptime(match_time_obj, '%Y-%m-%d %H:%M')
-                except ValueError:
-                    # SI FALLA, INTENTAR PARSEAR SOLO HORA Y USAR FECHA DE HOY
+                parsed_dt = None
+                parsers = (
+                    lambda v: datetime.fromisoformat(v.replace("Z", "+00:00")),
+                    lambda v: datetime.strptime(v, "%Y-%m-%d %H:%M"),
+                    lambda v: datetime.strptime(v, "%d/%m %H:%M").replace(year=now_madrid.year),
+                    lambda v: datetime.combine(today_date, datetime.strptime(v, "%H:%M").time()),
+                )
+                for parser in parsers:
                     try:
-                        time_only = datetime.strptime(match_time_obj, '%H:%M').time()
-                        match_time = datetime.combine(today_date, time_only)
-                    except ValueError:
-                        # SI AMBOS FALLAN, SALTAR ESTE PARTIDO
-                        print(f"ADVERTENCIA: Formato de fecha/hora no reconocido para el partido {match.get('id', 'N/A')}. Valor: '{match_time_obj}'")
+                        parsed_dt = parser(match_time_obj)
+                        break
+                    except (ValueError, TypeError):
                         continue
+                if parsed_dt is None:
+                    print(
+                        f"ADVERTENCIA: Formato de fecha/hora no reconocido para el partido "
+                        f"{match.get('id', 'N/A')}. Valor: '{match_time_obj}'"
+                    )
+                    continue
+                match_time = parsed_dt
 
             elif isinstance(match_time_obj, datetime):
                 match_time = match_time_obj
@@ -166,6 +188,9 @@ def filter_upcoming_matches(matches):
             if match_time_madrid > now_madrid:
                 upcoming.append(match)
         except (ValueError, KeyError, TypeError) as e:
-            print(f"ADVERTENCIA: No se pudo procesar la fecha para el partido {match.get('id', 'N/A')}. Valor: '{match.get('time')}'. Error: {e}")
+            print(
+                f"ADVERTENCIA: No se pudo procesar la fecha para el partido {match.get('id', 'N/A')}."
+                f" Valor: '{match.get('time')}'. Error: {e}"
+            )
             continue
     return upcoming

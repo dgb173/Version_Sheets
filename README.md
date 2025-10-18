@@ -4,8 +4,8 @@ Aplicacion Streamlit que reproduce al 100% la experiencia del servidor Flask ori
 - Conmutador entre proximos y finalizados, con filtros por handicap y paginacion incremental.
 - Botones para estudio completo y vista previa con cache y modos Ultra/Ligero/Completo.
 - Panel lateral para analisis manual con almacenamiento en la sesion.
-- Integracion directa con Google Sheets mediante `app_utils.load_data_from_sheets`.
-- Script CLI para mantener sincronizadas las hojas `Hoja 1`, `Hoja 2` y `Hoja 3`.
+- Lectura directa desde `data.json` (ruta personalizable desde la barra lateral).
+- Script CLI opcional para subir informacion a Google Sheets si se necesita mantener esa integracion.
 
 La captura `Caputra_Sheets.jpg` sirve como referencia visual para revisar la estructura de las hojas.
 
@@ -33,7 +33,26 @@ Funciones destacadas:
 - Panel de `analisis manual` que guarda estudios y vistas previas lanzados desde la barra lateral.
 - Paginacion con `Cargar mas partidos` que amplia en bloques constantes `PAGE_SIZE`.
 
-## Script de subida a Google Sheets
+## Generar `data.json` (Colab)
+
+Ubicacion: `colab_generar_datos.py`
+
+- Descarga hasta 1000 partidos proximos y finalizados usando el scraper del proyecto.
+- Permite filtrar por rango horario (`--start-hour`, `--end-hour`) en la zona horaria deseada.
+- Muestra el ID de cada partido en el resumen HTML generado (`--html`), listo para copiar/pegar en Colab.
+- Deja el archivo en el directorio que le indiques (`--output`, por defecto `../data.json`).
+
+Ejemplo rapido en Colab:
+
+```python
+!python colab_generar_datos.py --limit 1000 --start-hour 4 --end-hour 23 --output datos.json --html preview.html
+from IPython.display import HTML
+HTML(open("preview.html").read())
+```
+
+El JSON resultante mantiene las claves `upcoming_matches` y `finished_matches`, por lo que se puede cargar directamente en `streamlit_app.py` o pasarse a `estudio.py`/la funcion del “ojito”.
+
+## Script de subida a Google Sheets (opcional)
 
 Ubicacion: `upload_to_google_sheets.py`
 

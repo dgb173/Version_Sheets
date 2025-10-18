@@ -6,11 +6,13 @@ import copy
 import time
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
+from datetime import datetime
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 
 from app_utils import (
+    DEFAULT_DATA_JSON,
     filter_upcoming_matches,
     load_data_from_sheets,
     normalize_handicap_to_half_bucket_str,
@@ -66,6 +68,7 @@ def init_session_state() -> None:
         "preview_mode": "ultra",
         "include_performance": True,
         "manual_match_id": "",
+        "data_json_path": "",
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -76,16 +79,12 @@ def init_session_state() -> None:
 
 
 @st.cache_data(ttl=300)
-def cached_load_data() -> Dict[str, Any]:
-    """Carga datos desde Google Sheets con gestion de errores."""
+def cached_load_data(data_path: Optional[str]) -> Dict[str, Any]:
+    """Carga datos desde el archivo JSON local aplicando una capa de caché."""
     try:
-        return load_data_from_sheets()
+        return load_data_from_sheets(data_path=data_path)
     except Exception as exc:  # pragma: no cover - defensivo
-        return {
-            "upcoming_matches": [],
-            "finished_matches": [],
-            "error": str(exc),
-        }
+        return {"upcoming_matches": [], "finished_matches": [], "error": str(exc)}
 
 
 @st.cache_data(ttl=3600)
@@ -124,11 +123,26 @@ def cached_get_preview(match_id: str, mode: str) -> Dict[str, Any]:
         return {"error": str(exc)}
 
 
-def format_match_time(raw_time: Any) -> str:
-    """Convierte el valor de tiempo en una cadena legible."""
+def format_match_time(match: Dict[str, Any]) -> str:
+    """Convierte la información de tiempo de un partido en una cadena legible."""
+    raw_time = match.get("time_obj") or match.get("time")
     if raw_time in (None, "", "nan"):
         return "-"
     if isinstance(raw_time, str):
+        try:
+            dt = datetime.fromisoformat(raw_time.replace("Z", "+00:00"))
+            return dt.strftime("%d/%m %H:%M")
+        except ValueError:
+            pass
+        for fmt in ("%Y-%m-%d %H:%M", "%d/%m %H:%M", "%H:%M"):
+            try:
+                dt = datetime.strptime(raw_time, fmt)
+                if fmt == "%H:%M":
+                    today = datetime.now().date()
+                    dt = datetime.combine(today, dt.time())
+                return dt.strftime("%d/%m %H:%M")
+            except ValueError:
+                continue
         return raw_time
     try:
         ts = pd.to_datetime(raw_time)
@@ -446,7 +460,7 @@ def render_match_row(
     container = st.container()
     with container:
         cols = st.columns([1.2, 3.2, 1.2, 1.0, 1.0, 1.2, 1.2])
-        cols[0].markdown(f"**{format_match_time(match.get('time'))}**")
+        cols[0].markdown(f"**{format_match_time(match)}**")
         if match_id:
             cols[1].markdown(f"{match_label}\n\n`{match_id}`")
         else:
@@ -496,14 +510,33 @@ def main() -> None:
     """Punto de entrada principal de la aplicacion."""
     init_session_state()
 
-    with st.spinner("Cargando datos desde Google Sheets..."):
-        all_data = cached_load_data()
+    st.sidebar.divider()
+    st.sidebar.header("Fuente de datos")
+    st.sidebar.caption(
+        "La app utiliza `data.json` (puedes sobrescribir la ruta abajo). "
+        "Pulsa recargar tras cambiarla."
+    )
+    data_path_input = st.sidebar.text_input(
+        "Ruta personalizada de data.json",
+        value=st.session_state.get("data_json_path", ""),
+        placeholder="Ej: C:/ruta/mi_datos.json",
+    )
+    recargar = st.sidebar.button("Recargar data.json", key="reload_data_btn")
+    if recargar or data_path_input != st.session_state.get("data_json_path", ""):
+        st.session_state["data_json_path"] = data_path_input.strip()
+        cached_load_data.clear()
+        st.experimental_rerun()
+
+    with st.spinner("Cargando datos desde data.json..."):
+        all_data = cached_load_data(st.session_state.get("data_json_path") or None)
 
     if all_data.get("error"):
-        st.error(
-            f"No se pudieron cargar los datos desde Google Sheets: {all_data.get('error')}"
-        )
+        st.error(f"No se pudieron cargar los datos desde data.json: {all_data.get('error')}")
         st.stop()
+
+    data_source = all_data.get("source_path") or (
+        st.session_state.get("data_json_path") or str(DEFAULT_DATA_JSON)
+    )
 
     label_to_mode = {label: mode for label, mode in PAGE_OPTIONS}
     current_index = (
@@ -608,7 +641,7 @@ def main() -> None:
 
     st.title(page_title)
     st.caption(
-        f"{len(matches_filtered)} partidos (total sin filtro: {len(matches_base)}). "
+        f"Fuente: `{data_source}` · {len(matches_filtered)} partidos (total sin filtro: {len(matches_base)}). "
         f"Mostrando {len(visible_matches)}."
     )
 
