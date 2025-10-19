@@ -1,0 +1,1214 @@
+<div class="porletP" id="porletP6">
+            
+<div>
+        <h2 class="team-table-title">Previous Scores Statistics</h2>
+    <table id="table_v1" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="team-table-home">
+        <tbody>
+            <tr align="center" class="team-home">
+                <td colspan="16">
+                        <a onclick="javascript:openFbTeam(20515)" style="cursor:pointer">Imabari FC</a>
+                    &nbsp;
+                    <input onclick="initMatchListShow(1,1)" type="checkbox" id="cb_sos1"><label style="cursor:pointer" for="cb_sos1">Home</label>&nbsp;&nbsp;
+                    <input onclick="initMatchListShow(1,2)" type="checkbox" id="checkboxleague1" value="284" name="checkboxleague1">
+                    <label style="cursor: pointer" for="checkboxleague1">Same League</label>
+                    &nbsp;&nbsp;
+                    <input onclick="showOdds_all(1,3)" type="checkbox" id="ftType_1"><label style="cursor:pointer" for="ftType_1">HT</label>&nbsp;&nbsp;
+                    <select id="selectMatchCount1" class="countSelect" onchange="initMatchListShow(1,3)">
+                            <option value="1">Last 1</option>
+                            <option value="2">Last 2</option>
+                            <option value="3">Last 3</option>
+                            <option value="4">Last 4</option>
+                            <option value="5">Last 5</option>
+                            <option value="6">Last 6</option>
+                            <option value="7">Last 7</option>
+                            <option value="8">Last 8</option>
+                            <option value="9">Last 9</option>
+                            <option value="10" selected="'selected'">Last 10</option>
+                            <option value="11">Last 11</option>
+                            <option value="12">Last 12</option>
+                            <option value="13">Last 13</option>
+                            <option value="14">Last 14</option>
+                            <option value="15">Last 15</option>
+                            <option value="16">Last 16</option>
+                            <option value="17">Last 17</option>
+                            <option value="18">Last 18</option>
+                            <option value="19">Last 19</option>
+                            <option value="20">Last 20</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr name="vsBarTr">
+                <td colspan="16">
+                    
+
+                    <div class="x-bar" style="">
+                        <div class="tit">
+                            <span class="win-f left">
+                                Win <span id="hW_v1">6 (60%)</span>
+                            </span>
+                            <span class="draw-f">
+                                Draw <span id="d_v1">1 (10%)</span>
+                            </span>
+                            <span class="lose-f right">
+                                Loss <span id="gW_v1">3 (30%)</span>
+                            </span>
+                        </div>
+                        <div class="bar">
+                            <span style="width: 60%;" class="o-win left" id="hWBar_v1"></span>
+                            <span class="o-draw" id="dBar_v1"></span>
+                            <span style="width: 30%;" class="o-lose right" id="gWBar_v1"></span>
+                        </div>
+                    </div>
+                    <div class="x-bar" style="">
+                        <div class="tit">
+                            <span class="win-f left">
+                                <span id="hsAvg_v1">1.4 goals</span>
+                            </span>
+                            <span class="explain">
+                                Goals Scored/Conceded per Game
+                            </span>
+                            <span class="lose-f right">
+                                <span id="gsAvg_v1">1.3 goals</span>
+                            </span>
+                        </div>
+                        <div class="bar">
+                            <span class="o-win left" id="hsAvgRate_v1" style="width: 52%;"></span>
+                            <span class="o-lose right" id="gsAvgRate_v1" style="width: 48%;"></span>
+                        </div>
+                    </div>
+
+                    <ul class="y-bar" style="">
+                        <li class="group">
+                            <div class="tit">Asian Handicap Odds <span id="ahCount_v1">(10 games)</span></div>
+                            <div class="bars">
+                                <div class="item">
+                                    <div class="o-win bar" id="ahWBar_v1" style="height: 60%;">
+                                        <span class="value win-f">60%</span>
+                                        <span class="txt">Home</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-draw bar" id="ahDBar_v1" style="height: 0%;">
+                                        <span class="value draw-f">0%</span>
+                                        <span class="txt">Draw</span>
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-lose bar" id="ahLBar_v1" style="height: 40%;">
+                                        <span class="value lose-f">40%</span>
+                                        <span class="txt">Away</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="tit">Over/Under Odds <span id="ouCount_v1">(10 games)</span></div>
+                            <div class="bars">
+                                <div class="item">
+                                    <div class="o-win bar" id="ouWBar_v1" style="height: 50%;">
+                                        <span class="value win-f">50%</span>
+                                        <span class="txt">Over</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-draw bar" id="ouDBar_v1" style="height: 0%;">
+                                        <span class="value draw-f">0%</span>
+                                        <span class="txt">Draw</span>
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-lose bar" id="ouLBar_v1" style="height: 50%;">
+                                        <span class="value lose-f">50%</span>
+                                        <span class="txt">Under</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr align="center" name="vsHeadTr">
+                <th width="70" rowspan="2">League/Cup</th>
+                <th width="60" rowspan="2">Date </th>
+                <th width="120" rowspan="2">Home</th>
+                <th width="55" rowspan="2" id="FScore_1">Score </th>
+                <th width="120" rowspan="2">Away </th>
+                <th width="55" rowspan="2" id="FCorner_1">Corner </th>
+                <th width="144px" colspan="4" class="ll no-b-l">    <select onchange="showOdds_s(1,1);" id="sSelect_1">
+            <option value="281">Bet365</option>
+            <option value="474">Sbobet</option>
+            <option value="18">12Bet</option>
+            <option value="545">Crown</option>
+            <option value="0">1x2</option>
+            <option value="90">Easybet </option>
+            <option value="115">William Hill</option>
+            <option value="80">Macauslot</option>
+            <option value="82">Ladbrokes</option>
+    </select>
+ &nbsp;    <select onchange="showOdds_s(1,2);" id="sType_1">
+            <option value="0">First</option>
+            <option value="1">Final</option>
+    </select>
+ </th>
+                <th width="144px" colspan="4" class="ll no-b-l">    <select onchange="showOdds_h(1,1);" id="hSelect_1">
+            <option value="8">Bet365</option>
+            <option value="31">Sbobet</option>
+            <option value="24">12bet</option>
+            <option value="3">Crown</option>
+            <option value="12">Easybets</option>
+    </select>
+ &nbsp;    <select onchange="showOdds_h(1,2);" id="hType_1">
+            <option value="0">First</option>
+            <option value="1">Final</option>
+    </select>
+ </th>
+                <th width="35" class="rl ll" rowspan="2">O/U</th>
+            </tr>
+            <tr align="center" name="vsHeadTr" ahpanlu="" oupanlu="">
+                <th width="35" class="ll">HW</th>
+                <th width="35">D</th>
+                <th width="35">AW</th>
+                <th width="35">W/L</th>
+                <th width="35" class="ll">H</th>
+                <th width="35">AH</th>
+                <th width="35">A</th>
+                <th width="35">AH</th>
+            </tr>
+                <tr id="tr1_1" align="center" style="" vs="0" name="284" index="2702252" info="2,3,1988,2,1" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-09-20 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,9-1,20,10,00,00', 3)</script>20-09-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(1988)"><span class="">RB Omiya Ardija</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702252, 'RB Omiya Ardija', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">2-3</span><span class="hscore_1">(2-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">1-9</span><span class="hcorner_1">(1-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.20" data-e="1">2.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_2" align="center" style="" vs="0" name="284" index="2702240" info="1,0,198,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-09-13 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,9-1,13,10,00,00', 3)</script>13-09-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(198)"><span class="">Jubilo Iwata</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702240, 'Jubilo Iwata', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">1-0</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">3-4</span><span class="hcorner_1">(2-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.98">0.98</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.83">0.83</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_3" align="center" style="" vs="1" name="284" index="2702230" info="0,2,20515,0,1" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-30 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,30,10,00,00', 3)</script>30-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702230, 'Imabari FC', 'Iwaki FC', 'J2 League')"><span class="fscore_1 red2">0-2</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(25121)"><span class="">Iwaki FC</span></a></td>
+                    <td><span class="fcorner_1">2-8</span><span class="hcorner_1">(0-5)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.88" data-e="1">2.88</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="1.00">1.00</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.80">0.80</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_4" align="center" style="" vs="0" name="284" index="2702217" info="1,2,13537,1,1" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-23 09:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,23,09,00,00', 3)</script>23-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(13537)"><span class="">Blaublitz Akita</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702217, 'Blaublitz Akita', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">1-2</span><span class="hscore_1">(1-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">5-5</span><span class="hcorner_1">(2-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.88" data-e="1">2.88</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.40" data-e="1">2.40</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="1.05">1.05</td>
+                    <td data-o="0">0</td>
+                    <td data-o="0.75">0.75</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_5" align="center" style="" vs="0" name="284" index="2702216" info="1,2,9944,0,2" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-16 09:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,16,09,00,00', 3)</script>16-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(9944)"><span class="">Kataller Toyama</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702216, 'Kataller Toyama', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">1-2</span><span class="hscore_1">(0-2)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">12-3</span><span class="hcorner_1">(4-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.10" data-e="1">2.10</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="1.00">1.00</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="0.80">0.80</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_6" align="center" style="" vs="1" name="284" index="2702199" info="3,2,20515,2,0" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-09 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,09,10,00,00', 3)</script>09-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702199, 'Imabari FC', 'Roasso Kumamoto', 'J2 League')"><span class="fscore_1 red2">3-2</span><span class="hscore_1">(2-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(7541)"><span class="">Roasso Kumamoto</span></a></td>
+                    <td><span class="fcorner_1">2-5</span><span class="hcorner_1">(2-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.90" data-e="1">1.90</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.50" data-e="1">3.50</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.80" data-e="1">3.80</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0.5">0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_7" align="center" style="" vs="0" name="284" index="2702193" info="0,1,184,0,1" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-02 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,02,10,00,00', 3)</script>02-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(184)"><span class="">Oita Trinita</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702193, 'Oita Trinita', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">0-1</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">6-2</span><span class="hcorner_1">(2-0)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.38" data-e="1">2.38</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.75">0.75</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="1.05">1.05</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_8" align="center" style="" vs="1" name="284" index="2702179" info="1,0,20515,0,0" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-07-12 09:05:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,7-1,12,09,05,00', 3)</script>12-07-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702179, 'Imabari FC', 'Ehime FC', 'J2 League')"><span class="fscore_1 red2">1-0</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(4024)"><span class="">Ehime FC</span></a></td>
+                    <td><span class="fcorner_1">5-3</span><span class="hcorner_1">(4-0)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.65" data-e="1">1.65</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.75" data-e="1">3.75</td>
+                    <td class="hbg-td1" name="oddsData" data-o="4.75" data-e="1">4.75</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.85">0.85</td>
+                    <td data-o="0.5/1">0.5/1</td>
+                    <td data-o="0.95">0.95</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_9" align="center" style="" vs="1" name="284" index="2702171" info="2,4,20515,2,0" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-07-05 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,7-1,05,10,00,00', 3)</script>05-07-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702171, 'Imabari FC', 'Ventforet Kofu', 'J2 League')"><span class="fscore_1 red2">2-4</span><span class="hscore_1">(2-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3162)"><span class="">Ventforet Kofu</span></a></td>
+                    <td><span class="fcorner_1">2-8</span><span class="hcorner_1">(1-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.00" data-e="1">2.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.90" data-e="1">3.90</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_10" align="center" style="" vs="0" name="284" index="2702157" info="0,0,19176,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-28 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,28,10,00,00', 3)</script>28-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(19176)"><span class="">Fujieda MYFC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702157, 'Fujieda MYFC', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">0-0</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">7-2</span><span class="hcorner_1">(2-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.15" data-e="1">2.15</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_11" align="center" style="display:none;" vs="1" name="284" index="2702151" info="1,2,20515,0,0" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-21 09:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,21,09,00,00', 3)</script>21-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702151, 'Imabari FC', 'Mito Hollyhock', 'J2 League')"><span class="fscore_1 red2">1-2</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3194)"><span class="">Mito Hollyhock</span></a></td>
+                    <td><span class="fcorner_1">3-5</span><span class="hcorner_1">(3-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.35" data-e="1">2.35</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.90" data-e="1">2.90</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="1.03">1.03</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.78">0.78</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_12" align="center" style="display:none;" vs="0" name="284" index="2702137" info="2,2,3195,0,1" ahpanlu="1" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-15 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,15,05,00,00', 3)</script>15-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3195)"><span class="">Consadole Sapporo</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702137, 'Consadole Sapporo', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">2-2</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">4-6</span><span class="hcorner_1">(1-4)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.50" data-e="1">2.50</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.60" data-e="1">2.60</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.85">0.85</td>
+                    <td data-o="0">0</td>
+                    <td data-o="0.95">0.95</td>
+                    <td><span class="o-draw">D</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_13" align="center" style="display:none;" vs="1" name="284" index="2702124" info="1,1,20515,0,1" ahpanlu="0" oupanlu="1">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-07 09:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,07,09,00,00', 3)</script>07-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702124, 'Imabari FC', 'Oita Trinita', 'J2 League')"><span class="fscore_1 red2">1-1</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(184)"><span class="">Oita Trinita</span></a></td>
+                    <td><span class="fcorner_1">3-3</span><span class="hcorner_1">(2-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.20" data-e="1">2.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-draw">D</span></td>
+                </tr>
+                <tr id="tr1_14" align="center" style="display:none;" vs="1" name="284" index="2702130" info="0,1,20515,0,1" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-31 09:05:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,31,09,05,00', 3)</script>31-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702130, 'Imabari FC', 'Tokushima Vortis', 'J2 League')"><span class="fscore_1 red2">0-1</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3196)"><span class="">Tokushima Vortis</span></a></td>
+                    <td><span class="fcorner_1">2-5</span><span class="hcorner_1">(2-0)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.38" data-e="1">2.38</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.90" data-e="1">2.90</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="1.05">1.05</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.75">0.75</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_15" align="center" style="display:none;" vs="1" name="162" index="2778496" info="0,2,20515,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="Japan Emperor's Cup">JE Cup                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-25 04:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,25,04,00,00', 3)</script>25-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2778496, 'Imabari FC', 'Kagoshima United', 'Japan Emperor＇s Cup')"><span class="fscore_1 red2">0-2</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(22719)"><span class="">Kagoshima United</span></a></td>
+                    <td><span class="fcorner_1">7-7</span><span class="hcorner_1">(4-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.67" data-e="1">1.67</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="4.75" data-e="1">4.75</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="0.5/1">0.5/1</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_16" align="center" style="display:none;" vs="0" name="284" index="2702113" info="1,0,3162,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-17 04:30:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,17,04,30,00', 3)</script>17-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3162)"><span class="">Ventforet Kofu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702113, 'Ventforet Kofu', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">1-0</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">5-3</span><span class="hcorner_1">(1-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_17" align="center" style="display:none;" vs="1" name="284" index="2702097" info="0,1,20515,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-11 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,11,05,00,00', 3)</script>11-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702097, 'Imabari FC', 'JEF United Ichihara Chiba', 'J2 League')"><span class="fscore_1 red2">0-1</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(199)"><span class="">JEF United Ichihara Chiba</span></a></td>
+                    <td><span class="fcorner_1">5-6</span><span class="hcorner_1">(5-4)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.38" data-e="1">2.38</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.80" data-e="1">2.80</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.75">0.75</td>
+                    <td data-o="0">0</td>
+                    <td data-o="1.05">1.05</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_18" align="center" style="display:none;" vs="0" name="284" index="2702091" info="0,1,7541,0,1" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-06 06:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,06,06,00,00', 3)</script>06-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(7541)"><span class="">Roasso Kumamoto</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702091, 'Roasso Kumamoto', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">0-1</span><span class="hscore_1">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">10-7</span><span class="hcorner_1">(4-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.30" data-e="1">2.30</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.80">0.80</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="1.00">1.00</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr1_19" align="center" style="display:none;" vs="1" name="284" index="2702078" info="3,3,20515,0,2" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-03 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,03,05,00,00', 3)</script>03-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702078, 'Imabari FC', 'Jubilo Iwata', 'J2 League')"><span class="fscore_1 red2">3-3</span><span class="hscore_1">(0-2)</span></td>
+                    <td><a onclick="soccerDbPage.team(198)"><span class="">Jubilo Iwata</span></a></td>
+                    <td><span class="fcorner_1">4-6</span><span class="hcorner_1">(0-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.00" data-e="1">2.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.60" data-e="1">3.60</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="1.03">1.03</td>
+                    <td data-o="0.5">0.5</td>
+                    <td data-o="0.83">0.83</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr1_20" align="center" style="display:none;" vs="0" name="284" index="2702074" info="0,0,3194,0,0" ahpanlu="1" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-04-29 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,4-1,29,05,00,00', 3)</script>29-04-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3194)"><span class="">Mito Hollyhock</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702074, 'Mito Hollyhock', 'Imabari FC', 'J2 League')"><span class="fscore_1 red2">0-0</span><span class="hscore_1">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(20515)"><span class="team-home-f">Imabari FC</span></a></td>
+                    <td><span class="fcorner_1">7-3</span><span class="hcorner_1">(2-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.70" data-e="1">2.70</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.40" data-e="1">2.40</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="1.03">1.03</td>
+                    <td data-o="0">0</td>
+                    <td data-o="0.78">0.78</td>
+                    <td><span class="o-draw">D</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+            <tr name="nodataTr" style="display:none;">
+                <td colspan="16" style="line-height:70px;font-weight:bold;">No Data!</td>
+            </tr>
+</tbody></table>
+</div>
+
+
+            
+<div>
+    <table id="table_v2" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="team-table-guest">
+        <tbody>
+            <tr align="center" class="team-guest">
+                <td colspan="16">
+                        <a onclick="javascript:openFbTeam(3164)" style="cursor:pointer">Sagan Tosu</a>
+                    &nbsp;
+                    <input onclick="initMatchListShow(2,1)" type="checkbox" id="cb_sos2"><label style="cursor:pointer" for="cb_sos2">Away</label>&nbsp;&nbsp;
+                    <input onclick="initMatchListShow(2,2)" type="checkbox" id="checkboxleague2" value="284" name="checkboxleague2">
+                    <label style="cursor: pointer" for="checkboxleague2">Same League</label>
+                    &nbsp;&nbsp;
+                    <input onclick="showOdds_all(2,3)" type="checkbox" id="ftType_2"><label style="cursor:pointer" for="ftType_2">HT</label>&nbsp;&nbsp;
+                    <select id="selectMatchCount2" class="countSelect" onchange="initMatchListShow(2,3)">
+                            <option value="1">Last 1</option>
+                            <option value="2">Last 2</option>
+                            <option value="3">Last 3</option>
+                            <option value="4">Last 4</option>
+                            <option value="5">Last 5</option>
+                            <option value="6">Last 6</option>
+                            <option value="7">Last 7</option>
+                            <option value="8">Last 8</option>
+                            <option value="9">Last 9</option>
+                            <option value="10" selected="'selected'">Last 10</option>
+                            <option value="11">Last 11</option>
+                            <option value="12">Last 12</option>
+                            <option value="13">Last 13</option>
+                            <option value="14">Last 14</option>
+                            <option value="15">Last 15</option>
+                            <option value="16">Last 16</option>
+                            <option value="17">Last 17</option>
+                            <option value="18">Last 18</option>
+                            <option value="19">Last 19</option>
+                            <option value="20">Last 20</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr name="vsBarTr">
+                <td colspan="16">
+                    
+
+                    <div class="x-bar" style="">
+                        <div class="tit">
+                            <span class="win-f left">
+                                Win <span id="hW_v2">5 (50%)</span>
+                            </span>
+                            <span class="draw-f">
+                                Draw <span id="d_v2">1 (10%)</span>
+                            </span>
+                            <span class="lose-f right">
+                                Loss <span id="gW_v2">4 (40%)</span>
+                            </span>
+                        </div>
+                        <div class="bar">
+                            <span style="width: 50%;" class="o-win left" id="hWBar_v2"></span>
+                            <span class="o-draw" id="dBar_v2"></span>
+                            <span style="width: 40%;" class="o-lose right" id="gWBar_v2"></span>
+                        </div>
+                    </div>
+                    <div class="x-bar" style="">
+                        <div class="tit">
+                            <span class="win-f left">
+                                <span id="hsAvg_v2">1.7 goals</span>
+                            </span>
+                            <span class="explain">
+                                Goals Scored/Conceded per Game
+                            </span>
+                            <span class="lose-f right">
+                                <span id="gsAvg_v2">1.4 goals</span>
+                            </span>
+                        </div>
+                        <div class="bar">
+                            <span class="o-win left" id="hsAvgRate_v2" style="width: 55%;"></span>
+                            <span class="o-lose right" id="gsAvgRate_v2" style="width: 45%;"></span>
+                        </div>
+                    </div>
+
+                    <ul class="y-bar" style="">
+                        <li class="group">
+                            <div class="tit">Asian Handicap Odds <span id="ahCount_v2">(9 games)</span></div>
+                            <div class="bars">
+                                <div class="item">
+                                    <div class="o-win bar" id="ahWBar_v2" style="height: 44%;">
+                                        <span class="value win-f">44%</span>
+                                        <span class="txt">Home</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-draw bar" id="ahDBar_v2" style="height: 11%;">
+                                        <span class="value draw-f">11%</span>
+                                        <span class="txt">Draw</span>
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-lose bar" id="ahLBar_v2" style="height: 44%;">
+                                        <span class="value lose-f">44%</span>
+                                        <span class="txt">Away</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="tit">Over/Under Odds <span id="ouCount_v2">(9 games)</span></div>
+                            <div class="bars">
+                                <div class="item">
+                                    <div class="o-win bar" id="ouWBar_v2" style="height: 67%;">
+                                        <span class="value win-f">67%</span>
+                                        <span class="txt">Over</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-draw bar" id="ouDBar_v2" style="height: 0%;">
+                                        <span class="value draw-f">0%</span>
+                                        <span class="txt">Draw</span>
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="o-lose bar" id="ouLBar_v2" style="height: 33%;">
+                                        <span class="value lose-f">33%</span>
+                                        <span class="txt">Under</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr align="center" name="vsHeadTr">
+                <th width="70" rowspan="2">League/Cup</th>
+                <th width="60" rowspan="2">Date </th>
+                <th width="120" rowspan="2">Home</th>
+                <th width="55" rowspan="2" id="FScore_2">Score </th>
+                <th width="120" rowspan="2">Away </th>
+                <th width="55" rowspan="2" id="FCorner_2">Corner </th>
+                <th width="144px" colspan="4" class="ll no-b-l">    <select onchange="showOdds_s(2,1);" id="sSelect_2">
+            <option value="281">Bet365</option>
+            <option value="474">Sbobet</option>
+            <option value="18">12Bet</option>
+            <option value="545">Crown</option>
+            <option value="0">1x2</option>
+            <option value="90">Easybet </option>
+            <option value="115">William Hill</option>
+            <option value="80">Macauslot</option>
+            <option value="82">Ladbrokes</option>
+    </select>
+ &nbsp;    <select onchange="showOdds_s(2,2);" id="sType_2">
+            <option value="0">First</option>
+            <option value="1">Final</option>
+    </select>
+ </th>
+                <th width="144px" colspan="4" class="ll no-b-l">    <select onchange="showOdds_h(2,1);" id="hSelect_2">
+            <option value="8">Bet365</option>
+            <option value="31">Sbobet</option>
+            <option value="24">12bet</option>
+            <option value="3">Crown</option>
+            <option value="12">Easybets</option>
+    </select>
+ &nbsp;    <select onchange="showOdds_h(2,2);" id="hType_2">
+            <option value="0">First</option>
+            <option value="1">Final</option>
+    </select>
+ </th>
+                <th width="35" class="rl ll" rowspan="2">O/U</th>
+            </tr>
+            <tr align="center" name="vsHeadTr" ahpanlu="" oupanlu="">
+                <th width="35" class="ll">HW</th>
+                <th width="35">D</th>
+                <th width="35">AW</th>
+                <th width="35">W/L</th>
+                <th width="35" class="ll">H</th>
+                <th width="35">AH</th>
+                <th width="35">A</th>
+                <th width="35">AH</th>
+            </tr>
+                <tr id="tr2_1" align="center" style="" vs="0" name="284" index="2702253" info="4,2,3164,1,1" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-09-20 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,9-1,20,10,00,00', 3)</script>20-09-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702253, 'Sagan Tosu', 'Roasso Kumamoto', 'J2 League')"><span class="fscore_2 red2">4-2</span><span class="hscore_2">(1-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(7541)"><span class="">Roasso Kumamoto</span></a></td>
+                    <td><span class="fcorner_2">4-4</span><span class="hcorner_2">(4-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.15" data-e="1">2.15</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.88">0.88</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.93">0.93</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_2" align="center" style="" vs="1" name="284" index="2702241" info="2,3,3162,1,0" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-09-13 09:30:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,9-1,13,09,30,00', 3)</script>13-09-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3162)"><span class="">Ventforet Kofu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702241, 'Ventforet Kofu', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">2-3</span><span class="hscore_2">(1-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">0-9</span><span class="hcorner_2">(0-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.88" data-e="1">2.88</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.35" data-e="1">2.35</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.75">0.75</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="1.05">1.05</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_3" align="center" style="" vs="1" name="41" index="2868094" info="0,2,184,0,2" ahpanlu="" oupanlu="">
+                    <td height="25" title="International Club Friendly">INT CF                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-09-06 07:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,9-1,06,07,00,00', 3)</script>06-09-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(184)"><span class="">Oita Trinita</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2868094, 'Oita Trinita', 'Sagan Tosu', 'International Club Friendly')"><span class="fscore_2 red2">0-2</span><span class="hscore_2">(0-2)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">-</span><span class="hcorner_2"></span></td>
+                    <td class="hbg-td1" name="oddsData"></td>
+                    <td class="hbg-td1" name="oddsData"></td>
+                    <td class="hbg-td1" name="oddsData"></td>
+                    <td class="hbg-td1">            <span class="o-win">W</span>
+</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr id="tr2_4" align="center" style="" vs="1" name="284" index="2702232" info="3,2,3165,3,1" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-30 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,30,10,00,00', 3)</script>30-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3165)"><span class="">Montedio Yamagata</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702232, 'Montedio Yamagata', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">3-2</span><span class="hscore_2">(3-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">4-3</span><span class="hcorner_2">(1-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.45" data-e="1">2.45</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.70" data-e="1">2.70</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.80">0.80</td>
+                    <td data-o="0">0</td>
+                    <td data-o="1.00">1.00</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_5" align="center" style="" vs="0" name="284" index="2702223" info="2,2,3164,0,1" ahpanlu="1" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-23 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,23,10,00,00', 3)</script>23-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702223, 'Sagan Tosu', 'Mito Hollyhock', 'J2 League')"><span class="fscore_2 red2">2-2</span><span class="hscore_2">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3194)"><span class="">Mito Hollyhock</span></a></td>
+                    <td><span class="fcorner_2">6-2</span><span class="hcorner_2">(5-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.70" data-e="1">2.70</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.55" data-e="1">2.55</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="0">0</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-draw">D</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_6" align="center" style="" vs="0" name="284" index="2702215" info="1,2,3164,1,1" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-17 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,17,10,00,00', 3)</script>17-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702215, 'Sagan Tosu', 'V-Varen Nagasaki', 'J2 League')"><span class="fscore_2 red2">1-2</span><span class="hscore_2">(1-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(10031)"><span class="">V-Varen Nagasaki</span></a></td>
+                    <td><span class="fcorner_2">8-5</span><span class="hcorner_2">(1-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.10" data-e="1">2.10</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.98">0.98</td>
+                    <td data-o="0/-0.5">0/-0.5</td>
+                    <td data-o="0.83">0.83</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_7" align="center" style="" vs="1" name="284" index="2702198" info="0,1,4024,0,1" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-10 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,10,10,00,00', 3)</script>10-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(4024)"><span class="">Ehime FC</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702198, 'Ehime FC', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">0-1</span><span class="hscore_2">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">5-1</span><span class="hcorner_2">(1-0)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="4.10" data-e="1">4.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.80" data-e="1">1.80</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.98">0.98</td>
+                    <td data-o="-0.5">-0.5</td>
+                    <td data-o="0.83">0.83</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_8" align="center" style="" vs="1" name="284" index="2702189" info="1,0,3195,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-08-02 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,8-1,02,05,00,00', 3)</script>02-08-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3195)"><span class="">Consadole Sapporo</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702189, 'Consadole Sapporo', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">1-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">3-6</span><span class="hcorner_2">(2-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.35" data-e="1">2.35</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.25" data-e="1">3.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.80" data-e="1">2.80</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="1.05">1.05</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.75">0.75</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_9" align="center" style="" vs="1" name="162" index="2789901" info="1,0,200,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="Japan Emperor's Cup">JE Cup                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-07-16 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,7-1,16,10,00,00', 3)</script>16-07-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(200)"><span class="">Tokyo Verdy</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2789901, 'Tokyo Verdy', 'Sagan Tosu', 'Japan Emperor＇s Cup')"><span class="fscore_2 red2">1-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">3-6</span><span class="hcorner_2">(1-5)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.80" data-e="1">1.80</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="4.20" data-e="1">4.20</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.85">0.85</td>
+                    <td data-o="0.5">0.5</td>
+                    <td data-o="0.95">0.95</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_10" align="center" style="" vs="0" name="284" index="2702186" info="2,1,3164,1,1" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-07-12 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,7-1,12,10,00,00', 3)</script>12-07-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702186, 'Sagan Tosu', 'Oita Trinita', 'J2 League')"><span class="fscore_2 red2">2-1</span><span class="hscore_2">(1-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(184)"><span class="">Oita Trinita</span></a></td>
+                    <td><span class="fcorner_2">2-3</span><span class="hcorner_2">(1-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.30" data-e="1">3.30</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_11" align="center" style="display:none;" vs="1" name="284" index="2702168" info="0,2,199,0,1" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-07-05 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,7-1,05,10,00,00', 3)</script>05-07-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(199)"><span class="">JEF United Ichihara Chiba</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702168, 'JEF United Ichihara Chiba', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">0-2</span><span class="hscore_2">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">4-5</span><span class="hcorner_2">(0-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.00" data-e="1">2.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.50" data-e="1">3.50</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="1.03">1.03</td>
+                    <td data-o="0.5">0.5</td>
+                    <td data-o="0.78">0.78</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_12" align="center" style="display:none;" vs="0" name="284" index="2702165" info="1,0,3164,1,0" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-28 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,28,10,00,00', 3)</script>28-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702165, 'Sagan Tosu', 'Iwaki FC', 'J2 League')"><span class="fscore_2 red2">1-0</span><span class="hscore_2">(1-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(25121)"><span class="">Iwaki FC</span></a></td>
+                    <td><span class="fcorner_2">3-9</span><span class="hcorner_2">(2-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="1.00">1.00</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.80">0.80</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_13" align="center" style="display:none;" vs="1" name="284" index="2702154" info="0,0,1988,0,0" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-21 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,21,10,00,00', 3)</script>21-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(1988)"><span class="">RB Omiya Ardija</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702154, 'RB Omiya Ardija', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">0-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">3-4</span><span class="hcorner_2">(2-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.91" data-e="1">1.91</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.90" data-e="1">3.90</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.93">0.93</td>
+                    <td data-o="0.5">0.5</td>
+                    <td data-o="0.88">0.88</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_14" align="center" style="display:none;" vs="1" name="284" index="2702140" info="1,0,3194,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-14 09:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,14,09,00,00', 3)</script>14-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3194)"><span class="">Mito Hollyhock</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702140, 'Mito Hollyhock', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">1-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">1-1</span><span class="hcorner_2">(1-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.20" data-e="1">3.20</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1"><span class="o-lose">L</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_15" align="center" style="display:none;" vs="0" name="162" index="2782917" info="1,0,3164,0,0" ahpanlu="1" oupanlu="0">
+                    <td height="25" title="Japan Emperor's Cup">JE Cup                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-06-11 10:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,6-1,11,10,00,00', 3)</script>11-06-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2782917, 'Sagan Tosu', 'Ehime FC', 'Japan Emperor＇s Cup')"><span class="fscore_2 red2">1-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(4024)"><span class="">Ehime FC</span></a></td>
+                    <td><span class="fcorner_2">9-2</span><span class="hcorner_2">(2-2)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.53" data-e="1">1.53</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.60" data-e="1">3.60</td>
+                    <td class="hbg-td1" name="oddsData" data-o="5.50" data-e="1">5.50</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="1">1</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-draw">D</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_16" align="center" style="display:none;" vs="0" name="284" index="2702135" info="2,2,3164,2,0" ahpanlu="0" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-31 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,31,05,00,00', 3)</script>31-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702135, 'Sagan Tosu', 'Ehime FC', 'J2 League')"><span class="fscore_2 red2">2-2</span><span class="hscore_2">(2-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(4024)"><span class="">Ehime FC</span></a></td>
+                    <td><span class="fcorner_2">7-1</span><span class="hcorner_2">(4-0)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="1.70" data-e="1">1.70</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.60" data-e="1">3.60</td>
+                    <td class="hbg-td1" name="oddsData" data-o="4.50" data-e="1">4.50</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.95">0.95</td>
+                    <td data-o="0.5/1">0.5/1</td>
+                    <td data-o="0.85">0.85</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_17" align="center" style="display:none;" vs="0" name="284" index="2702121" info="2,1,3164,2,0" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-25 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,25,05,00,00', 3)</script>25-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702121, 'Sagan Tosu', 'Consadole Sapporo', 'J2 League')"><span class="fscore_2 red2">2-1</span><span class="hscore_2">(2-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3195)"><span class="">Consadole Sapporo</span></a></td>
+                    <td><span class="fcorner_2">5-8</span><span class="hcorner_2">(3-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.60" data-e="1">2.60</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.40" data-e="1">3.40</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.60" data-e="1">2.60</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0">0</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_18" align="center" style="display:none;" vs="1" name="284" index="2702107" info="1,2,13537,1,1" ahpanlu="2" oupanlu="2">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-17 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,17,05,00,00', 3)</script>17-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(13537)"><span class="">Blaublitz Akita</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702107, 'Blaublitz Akita', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">1-2</span><span class="hscore_2">(1-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">4-4</span><span class="hcorner_2">(3-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.55" data-e="1">2.55</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.90" data-e="1">2.90</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.78">0.78</td>
+                    <td data-o="0">0</td>
+                    <td data-o="1.03">1.03</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-win">O</span></td>
+                </tr>
+                <tr id="tr2_19" align="center" style="display:none;" vs="0" name="284" index="2702103" info="0,0,3164,0,0" ahpanlu="0" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-11 05:00:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,11,05,00,00', 3)</script>11-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702103, 'Sagan Tosu', 'Ventforet Kofu', 'J2 League')"><span class="fscore_2 red2">0-0</span><span class="hscore_2">(0-0)</span></td>
+                    <td><a onclick="soccerDbPage.team(3162)"><span class="">Ventforet Kofu</span></a></td>
+                    <td><span class="fcorner_2">7-2</span><span class="hcorner_2">(2-1)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.10" data-e="1">2.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.10" data-e="1">3.10</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.50" data-e="1">3.50</td>
+                    <td class="hbg-td1"><span class="o-draw">D</span></td>
+                    <td data-o="0.78">0.78</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="1.03">1.03</td>
+                    <td><span class="o-lose">L</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+                <tr id="tr2_20" align="center" style="display:none;" vs="1" name="284" index="2702094" info="0,1,3196,0,1" ahpanlu="2" oupanlu="0">
+                    <td height="25" title="J2 League">JPN D2                        </td>
+                    <td>
+                            <span name="timeData" data-t="2025-05-06 06:50:00" data-tf="3">
+        <script language="Javascript" type="text/javascript">formatDate('2025,5-1,06,06,50,00', 3)</script>06-05-2025
+    </span>
+
+                    </td><td><a onclick="soccerDbPage.team(3196)"><span class="">Tokushima Vortis</span></a></td>
+                    <td style="cursor: pointer;" onclick="soccerInPage.detail(2702094, 'Tokushima Vortis', 'Sagan Tosu', 'J2 League')"><span class="fscore_2 red2">0-1</span><span class="hscore_2">(0-1)</span></td>
+                    <td><a onclick="soccerDbPage.team(3164)"><span class="team-away-f">Sagan Tosu</span></a></td>
+                    <td><span class="fcorner_2">8-4</span><span class="hcorner_2">(2-3)</span></td>
+                    <td class="hbg-td1" name="oddsData" data-o="2.25" data-e="1">2.25</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.00" data-e="1">3.00</td>
+                    <td class="hbg-td1" name="oddsData" data-o="3.50" data-e="1">3.50</td>
+                    <td class="hbg-td1"><span class="o-win">W</span></td>
+                    <td data-o="0.90">0.90</td>
+                    <td data-o="0/0.5">0/0.5</td>
+                    <td data-o="0.90">0.90</td>
+                    <td><span class="o-win">W</span></td>
+                    <td><span class="o-lose">U</span></td>
+                </tr>
+            <tr name="nodataTr" style="display:none;">
+                <td colspan="16" style="line-height:70px;font-weight:bold;">No Data!</td>
+            </tr>
+</tbody></table>
+</div>
+
+
+        </div>
